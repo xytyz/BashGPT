@@ -50,10 +50,10 @@ sleep 1
 keyline="export OPENAI_API_KEY=No_Key"
 if grep -Fxq "$keyline" ~/Downloads/BashGPT/chatter.sh
 then
-    	read -p "Kindly enter your OpenAI API Key found at https://platform.openai.com/account/api-keys " Your_Key
-	sed -i "s/No_Key/$Your_Key/g" ~/Downloads/BashGPT/chatter.sh
-else
 	echo "Key already added!"
+else
+	read -p "Kindly enter your OpenAI API Key found at https://platform.openai.com/account/api-keys " Your_Key
+	sed -i "s/No_Key/$Your_Key/g" ~/Downloads/BashGPT/chatter.sh
 fi
 
 ##############################
