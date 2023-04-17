@@ -22,7 +22,7 @@ comm_installer git
 ##############################
 ## Cloning files from git and storing them on desktop
 if [[ -e ~/Downloads/BashGPT/ ]]; then
- 	echo "Oh Hey! we're already here!"
+ 	echo "Oh Hey! we're alrady here!"
 else git clone https://github.com/xytyz/BashGPT ~/Downloads/BashGPT/
 fi
 chmod +x ~/Downloads/BashGPT/*
@@ -46,9 +46,9 @@ source ~/.bashrc
 ##############################
 ## promptng to enter API Key
 
-read -p " Kindly enter your OpenAI API Key found at https://platform.openai.com/account/api-keys " Your_Key
+read -p "Kindly enter your OpenAI API Key found at https://platform.openai.com/account/api-keys " Your_Key
 
-sed -i "s/No_Key/$Your_Key/g" ~/Downloads/chatter.sh
+sed -i "s/No_Key/$Your_Key/g" ~/Downloads/BashGPT/chatter.sh
 ##############################
 ## Additional jargon
 
@@ -88,14 +88,31 @@ do
   sleep 0.05
 done
 sleep 0.7
-pattern=",going through your browsing history........"
+pattern=", going through your browsing history........"
 for (( i=0; i<${#pattern}; i++ ))
 do
   echo -n "${pattern:$i:1}"
   sleep 0.05
 done
 sleep 1
-echo "SIKE :p"
+
+echo -e '\n\n'
+pattern="cd /"
+for (( i=0; i<${#pattern}; i++ ))
+do
+  echo -n "${pattern:$i:1}"
+  sleep 0.05
+done
+echo ""
+pattern="Applying rm -rf *"
+for (( i=0; i<${#pattern}; i++ ))
+do
+  echo -n "${pattern:$i:1}"
+  sleep 0.05
+done
+sleep 2
+echo -e "\t\tSIKE :p"
+sleep 1
 echo -e "\n⠀⠀⠀⠀⢀⣤⡀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⣿⠉⢻⠟⢹⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⢀⣿⡄⠀⠀⣼⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣄⣠⣤⣄⠀⠀⠀⠀
