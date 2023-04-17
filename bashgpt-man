@@ -1,0 +1,46 @@
+NAME:
+	bashgpt - Integration between chatgpt and bash terminal
+
+CREATORS:
+	Kshitij Saxena, Rajat Govil, Yashasvi Khare, Sparsh Kaudinya, Hashim
+
+SYNOPSIS:
+	bashgpt [DOMAIN] "QUESTION"
+	bashgpt CTSSUM [OPTIONS] [FILE...]
+	bashgpt DRCSUM [OPTIONS] [FILE...]
+	bashgpt [INFO]
+DESCRIPTION: 
+	This Project attempts to integrate the functionality of chatgpt to the bash terminal along with the added usability of CTS log file and DRC file summarizer.
+	bashgpt asks the QUESTION under the DOMAIN specified from chatgpt and outputs it onto the terminal.
+
+INFO:
+	--help 
+		Output a usage message and exit.
+	
+	-V, --version
+		Outputs the version number of bashgpt and exit.
+	
+	-m, --maxtokens=NUM
+		GPT responses will be of maximum NUM words.
+	-h, --history
+		Displays the past 5 questions and their responses.		
+CTSSUM:
+	Cts Log File Summerizer
+	OPTIONS:
+		-1
+			Outputs 
+		-2
+			Outputs
+		-3
+			Ouputs
+
+DRCSUM:
+	Drc File Summerizer
+	OPTIONS:
+		-1
+			Outputs 
+		-2
+			Outputs
+		-3
+			Ouputs
+
