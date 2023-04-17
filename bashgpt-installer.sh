@@ -19,7 +19,6 @@ echo -e "Thank you for installing BashGPT\n"
 comm_installer curl
 comm_installer git
 
-
 ##############################
 ## Cloning files from git and storing them on desktop
 if [[ -e ~/Downloads/BashGPT/ ]]; then
@@ -27,8 +26,6 @@ if [[ -e ~/Downloads/BashGPT/ ]]; then
 else git clone https://github.com/xytyz/BashGPT ~/Downloads/BashGPT/
 fi
 chmod +x ~/Downloads/BashGPT/*
-
-
 ##############################
 ## Making Alias in .bashrc
 
@@ -46,19 +43,12 @@ else
 fi
 source ~/.bashrc
 
-
 ##############################
 ## promptng to enter API Key
 
 read " Kindly enter your OpenAI API Key found at https://platform.openai.com/account/api-keys " Your_Key
 
 sed -i "sed/No_Key/$Your_Key/g" ~/Downloads/chatter.sh
-
-
-##############################
-## Additional Information
-echo -e "This Installation page is brought to you by yo boi xytyz.\n The current version of BashGPT is beta-0.2"
-
 
 ##############################
 ## Finisher
