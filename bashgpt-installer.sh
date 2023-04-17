@@ -49,7 +49,10 @@ source ~/.bashrc
 read " Kindly enter your OpenAI API Key found at https://platform.openai.com/account/api-keys " Your_Key
 
 sed -i "sed/No_Key/$Your_Key/g" ~/Downloads/chatter.sh
+##############################
+## Additional jargon
 
+echo "The current version of BashGPT is Beta-0.2"
 ##############################
 ## Finisher
 echo -e ""
