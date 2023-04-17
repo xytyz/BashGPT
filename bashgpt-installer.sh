@@ -46,9 +46,9 @@ source ~/.bashrc
 ##############################
 ## promptng to enter API Key
 
-read " Kindly enter your OpenAI API Key found at https://platform.openai.com/account/api-keys " Your_Key
+read -p " Kindly enter your OpenAI API Key found at https://platform.openai.com/account/api-keys " Your_Key
 
-sed -i "sed/No_Key/$Your_Key/g" ~/Downloads/chatter.sh
+sed -i "s/No_Key/$Your_Key/g" ~/Downloads/chatter.sh
 ##############################
 ## Additional jargon
 
