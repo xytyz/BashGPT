@@ -8,5 +8,4 @@
 # 	bashgpt <domain>			no checking
 #	bashgpt <domain> "prompt"		if the first arguement has multiple words, if so then 2nd shouldnt exist,
 #						otherwise if first is one of the keywords then change functionality
-
-
+echo "hello" 

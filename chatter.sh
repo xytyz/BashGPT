@@ -1,7 +1,7 @@
 #! /bin/bash
 
 #API key to authorize chatgpt communication
-export OPENAI_API_KEY=
+export OPENAI_API_KEY=No_Key
 
 ## temporary file to store output
 temp_file="temp"
