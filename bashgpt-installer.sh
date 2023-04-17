@@ -22,7 +22,7 @@ comm_installer git
 ##############################
 ## Cloning files from git and storing them on desktop
 if [[ -e ~/Downloads/BashGPT/ ]]; then
- 	echo "Oh Hey! we're alrady here!"
+ 	echo "Oh Hey! we're already here!"
 else git clone https://github.com/xytyz/BashGPT ~/Downloads/BashGPT/
 fi
 chmod +x ~/Downloads/BashGPT/*
