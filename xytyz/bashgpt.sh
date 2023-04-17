@@ -4,7 +4,7 @@
 
 #API key to authorize chatgpt communication
 
-export OPENAI_API_KEY=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
+export OPENAI_API_KEY=
 
 
 ## temporary file to store output
