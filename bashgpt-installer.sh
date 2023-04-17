@@ -17,7 +17,9 @@ function comm_installer(){
 echo -e "Thank you for installing BashGPT\n"
 
 comm_installer curl
+sleep 2
 comm_installer git
+sleep 1
 
 ##############################
 ## Cloning files from git and storing them on desktop
@@ -31,28 +33,40 @@ chmod +x ~/Downloads/BashGPT/*
 
 # Define the alias we want to add
 NEW_ALIAS="alias bashgpt='~/Downloads/BashGPT/bashgpt.sh'"
-
+sleep 1
 # Check if the alias already exists in .bashrc
 if grep -Fxq "$NEW_ALIAS" ~/.bashrc
 then
-    echo "Alias already exists"
+    	echo "Alias already exists!"
 else
-    # Add the alias to .bashrc
-    echo "$NEW_ALIAS" >> ~/.bashrc
-    echo "Alias added to .bashrc"
+    	# Add the alias to .bashrc
+    	echo "$NEW_ALIAS" >> ~/.bashrc
+    	echo "Alias added to .bashrc"
 fi
 source ~/.bashrc
-
+sleep 1
 ##############################
 ## promptng to enter API Key
+keyline="export OPENAI_API_KEY=No_Key"
+if grep -Fxq "$keyline" ~/Downloads/BashGPT/chatter.sh
+then
+    	read -p "Kindly enter your OpenAI API Key found at https://platform.openai.com/account/api-keys " Your_Key
+	sed -i "s/No_Key/$Your_Key/g" ~/Downloads/BashGPT/chatter.sh
+else
+	echo "Key already added!"
+fi
 
-read -p "Kindly enter your OpenAI API Key found at https://platform.openai.com/account/api-keys " Your_Key
-
-sed -i "s/No_Key/$Your_Key/g" ~/Downloads/BashGPT/chatter.sh
 ##############################
 ## Additional jargon
+sleep 1
+pattern="The current version of BashGPT is Beta-0.2"
 
-echo "The current version of BashGPT is Beta-0.2"
+for (( i=0; i<${#pattern}; i++ ))
+do
+  echo -n "${pattern:$i:1}"
+  sleep 0.03
+done
+sleep 0.5
 ##############################
 ## Finisher
 echo -e ""
