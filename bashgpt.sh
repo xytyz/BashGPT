@@ -20,7 +20,7 @@ case $first in
 				~/Downloads/BashGPT/DRCSummerizer.sh $first $second $file
 				;;
 	--help) 		cat ~/Downloads/BashGPT/bashgpt-man;;
-	-v|-V|--version) 	echo "The Current Version of BashGPT is $version"
+	-v|-V|--version) 	echo "The Current Version of BashGPT is $Current_Version"
 				;;
 	-m|-M|--maxtokens) 	if [[ $second == ^[0-9]+$ ]]; then
 					if [[ $second -le 200 ]] && [[ $second -gt 10 ]]; then
