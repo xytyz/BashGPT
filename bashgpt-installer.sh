@@ -53,14 +53,15 @@ then
 	read -p "Kindly enter your OpenAI API Key found at https://platform.openai.com/account/api-keys " Your_Key
 	sed -i "s/No_Key/$Your_Key/g" ~/Downloads/BashGPT/chatter.sh
 else
-	echo "Key already added!"	
+	echo "Key already added!"
 fi
 
 ##############################
-## Additional jargon
+## Version Details
 sleep 1
+Current_Version="Beta-0.2"
 pattern="The current version of BashGPT is Beta-0.2"
-
+sed -i "s/VersionPlaceholder/$Current_Version/" ~/Downloads/BashGPT/bashgpt.sh
 for (( i=0; i<${#pattern}; i++ ))
 do
   echo -n "${pattern:$i:1}"
