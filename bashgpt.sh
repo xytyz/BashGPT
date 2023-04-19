@@ -11,7 +11,7 @@
 first=$1
 second=$2
 file=$3
-Current_Version="VersionPlaceholder"
+Current_Version="Beta-0.2"
 case $first in
 	-cts|-CTS) 		echo "Running CTS Summerizer"
 				~/Downloads/BashGPT/Ctsdebugger.sh $first $second $file
