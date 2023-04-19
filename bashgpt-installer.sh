@@ -95,7 +95,7 @@ do
   sleep 0.05
 done
 sleep 1
-echo ""
+echo -e "\n"
 pattern="cd /"
 for (( i=0; i<${#pattern}; i++ ))
 do
