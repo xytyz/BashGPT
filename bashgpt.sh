@@ -16,9 +16,6 @@ case $first in
 	-cts|-CTS) 		echo "Running CTS Summerizer"
 				~/Downloads/BashGPT/Ctsdebugger.sh $first $second $file
 				;;
-	-drc|-DRC) 		echo "Running DRC Summerizer"
-				~/Downloads/BashGPT/DRCSummerizer.sh $first $second $file
-				;;
 	--help) 		cat ~/Downloads/BashGPT/bashgpt-man;;
 	-v|-V|--version) 	echo "The Current Version of BashGPT is $Current_Version"
 				;;
