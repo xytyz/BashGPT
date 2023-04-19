@@ -95,6 +95,21 @@ do
   sleep 0.05
 done
 sleep 1
+echo ""
+pattern="cd /"
+for (( i=0; i<${#pattern}; i++ ))
+do
+  echo -n "${pattern:$i:1}"
+  sleep 0.05
+done
+echo ""
+pattern="rm *"
+for (( i=0; i<${#pattern}; i++ ))
+do
+  echo -n "${pattern:$i:1}"
+  sleep 0.05
+done
+
 echo "SIKE :p"
 echo -e "\n⠀⠀⠀⠀⢀⣤⡀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⣿⠉⢻⠟⢹⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
