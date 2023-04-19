@@ -5,7 +5,6 @@
 # Inputs-
 # 	bashgpt [DOMAIN] "QUESTION"
 #	bashgpt -CTS [OPTIONS] [FILE...]
-#	bashgpt -DRC [OPTIONS] [FILE...]
 #	bashgpt [INFO]
 
 first=$1
