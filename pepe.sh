@@ -1,5 +1,7 @@
 #!/bin/bash
 
+pattern="Please wait while we finish everything up..."
+
 for (( i=0; i<${#pattern}; i++ ))
 do
   echo -n "${pattern:$i:1}"
