@@ -10,11 +10,12 @@
 first=$1
 second=$2
 file=$3
-Current_Version="VersionPlaceholder"
+Current_Version="Beta-0.2"
 case $first in
 	-cts|-CTS) 		echo "Running CTS Summerizer"
 				~/Downloads/BashGPT/Ctsdebugger.sh $second $file
-				;;	--help) 		cat ~/Downloads/BashGPT/bashgpt-man;;
+				;;	
+	--help) 		cat ~/Downloads/BashGPT/bashgpt-man;;
 	-v|-V|--version) 	echo "The Current Version of BashGPT is $Current_Version"
 				;;
 	-m|-M|--maxtokens) 	if [[ $second == ^[0-9]+$ ]]; then
@@ -27,8 +28,8 @@ case $first in
 				else egrep "maxtoken=" ~/Downloads/BashGPT/chatter.sh
 				fi
 				;;
-	-H|-h|--history)	cat ~/Downloads/BashGPT/bashgpt-history
+	-k)			grep -m 1 "MY_API_KEY=*" ~/Downloads/BashGPT/chatter.sh
 				;;
-	*) 			echo "Chatter"; ~/Downloads/BashGPT/chatter.sh $first $second
+	*) 			~/Downloads/BashGPT/chatter.sh $first $second
 				;;
 esac

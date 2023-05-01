@@ -1,7 +1,8 @@
 #! /bin/bash
 
 #API key to authorize chatgpt communication
-export OPENAI_API_KEY=No_Key
+MY_API_KEY=No_Key
+export OPENAI_API_KEY=$MY_API_KEY
 
 ## temporary file to store output
 temp_file="temp"
@@ -29,9 +30,12 @@ message=$(echo '{
     "model": "gpt-3.5-turbo",
     "messages": [{"role": "user", "content": "placeholder"}],
     "max_tokens": 50,
-    "temperature": 0.3
+    "temperature": 0.3 
   }' | sed "s/placeholder/$domain/")
-  
+
+## token : max number of words
+## temperature : creativity in answers
+
 ## curl command set to the openai api for interfacing with chatgpt
 curl -s https://api.openai.com/v1/chat/completions \
 	-H "Content-Type: application/json" \
@@ -45,8 +49,16 @@ while ps -p $! &> /dev/null; do
 done
 
 ## removing the header and footer from the json and printing out the actual content needed
+## If the file has an error category, then print the error message otherwise print content of reply
+if grep -q "error" $temp_file; then
+	echo -e "\r WE HAVE DETECTED AN ERROR\n"
+	output=$(cat $temp_file |grep -o '"message": ".*"'| sed 's/"message": "\(.*\)"/\1/')
 
-output=$(cat $temp_file |grep -o '"content":.*' | sed 's/"content"://;s/"//g'| sed -n 's/\(.*\)},finish_reason.*/\1/p')
-echo -e "\nHope this helps: \n";
-echo -e "$output \n"
+	echo -e "$output \n"
+else
+	output=$(cat $temp_file |grep -o '"content":.*' | sed 's/"content"://;s/"//g'| sed -n 's/\(.*\)},finish_reason.*/\1/p')
+	echo -e "\nHope this helps: \n";
+	echo -e "$output \n"
+fi
 
+rm temp

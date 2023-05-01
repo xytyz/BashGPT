@@ -19,10 +19,8 @@ INFO:
 	-V, --version
 		Outputs the version number of bashgpt and exit.
 	
-	-m, --maxtokens=NUM
-		GPT responses will be of maximum NUM words.
-	-h, --history
-		Displays the past 5 questions and their responses.		
+	-m, --maxtokens NUM
+		GPT responses will be of maximum NUM words.		
 CTSSUM:
 	Cts Log File Summerizer
 	OPTIONS:
@@ -41,4 +39,4 @@ CTSSUM:
 		-7 [Skew Group File (.rpt)]
 			Min And Max Path For A Given Clock At A Delay Corner
 		
-		When using no option, the file type is checked and all functions corresponding to that type of file would be executed.
+		When using no option, the user will be prompted by a menu to guide them.
