@@ -55,6 +55,7 @@ if grep -q "error" $temp_file; then
 	output=$(cat $temp_file |grep -o '"message": ".*"'| sed 's/"message": "\(.*\)"/\1/')
 
 	echo -e "$output \n"
+	echo -e "You can change your key using the command \n bashgpt -k <Valid_API_Key>"
 else
 	output=$(cat $temp_file |grep -o '"content":.*' | sed 's/"content"://;s/"//g'| sed -n 's/\(.*\)},finish_reason.*/\1/p')
 	echo -e "\nHope this helps: \n";

@@ -20,7 +20,11 @@ INFO:
 		Outputs the version number of bashgpt and exit.
 	
 	-m, --maxtokens NUM
-		GPT responses will be of maximum NUM words.		
+		GPT responses will be of maximum NUM words.
+		
+	-k, -K, -Key, -key [Valid_API_Key]
+		Outputs your current API key being used if no arguement given, otherwise, overwrites the old with the new key provided.
+		
 CTSSUM:
 	Cts Log File Summerizer
 	OPTIONS:

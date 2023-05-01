@@ -21,6 +21,7 @@ sleep 2
 comm_installer git
 sleep 1
 
+
 ##############################
 ## Cloning files from git and storing them on desktop
 if [[ -e ~/Downloads/BashGPT/ ]]; then
@@ -29,6 +30,8 @@ else git clone https://github.com/xytyz/BashGPT ~/Downloads/BashGPT/
 fi
 chmod +x ~/Downloads/BashGPT/*
 rm ~/Downloads/BashGPT/README.md
+
+
 ##############################
 ## Making Alias in .bashrc
 
@@ -58,6 +61,7 @@ then
 else
 	echo "Key already added!"
 fi
+
 
 ##############################
 ## Version Details
