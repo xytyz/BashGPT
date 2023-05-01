@@ -1,19 +1,19 @@
-##NAME:
+## NAME:
 	bashgpt - Integration between chatgpt and bash terminal
 
-##CREATORS:
+## CREATORS:
 	Kshitij Saxena, Rajat Govil, Yashasvi Khare, Sparsh Kaudinya, Hashim 
 
-##SYNOPSIS:
+## SYNOPSIS:
 	bashgpt [DOMAIN] "QUESTION"
 	bashgpt CTSSUM [OPTIONS] [FILE...]
 	bashgpt [INFO]
 
-##DESCRIPTION: 
+## DESCRIPTION: 
 	This Project attempts to integrate the functionality of chatgpt to the bash terminal along with the added usability of CTS log file.
 	bashgpt asks the QUESTION under the DOMAIN specified from chatgpt and outputs it onto the terminal.
 
-##INFO:
+## INFO:
 	--help 
 		Output a usage message and exit.
 	
@@ -26,7 +26,7 @@
 	-k, -K, -Key, -key [Valid_API_Key]
 		Outputs your current API key being used if no arguement given, otherwise, overwrites the old with the new key provided.
 		
-##CTSSUM:
+## CTSSUM:
 	Cts Log File Summerizer
 	OPTIONS:
 		-1 [Log File (.logv)]
