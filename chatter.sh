@@ -51,7 +51,7 @@ done
 ## removing the header and footer from the json and printing out the actual content needed
 ## If the file has an error category, then print the error message otherwise print content of reply
 if grep -q "error" $temp_file; then
-	echo -e "\r WE HAVE DETECTED AN ERROR\n"
+	echo -e "\rWE HAVE DETECTED AN ERROR\n"
 	output=$(cat $temp_file |grep -o '"message": ".*"'| sed 's/"message": "\(.*\)"/\1/')
 
 	echo -e "$output \n"
