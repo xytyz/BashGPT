@@ -46,9 +46,11 @@ else
 fi
 source ~/.bashrc
 sleep 1
+
+
 ##############################
 ## promptng to enter API Key
-keyline="export OPENAI_API_KEY=No_Key"
+keyline="MY_API_KEY=No_Key"
 if grep -Fxq "$keyline" ~/Downloads/BashGPT/chatter.sh
 then
 	read -p "Kindly enter your OpenAI API Key found at https://platform.openai.com/account/api-keys " Your_Key
