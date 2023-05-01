@@ -28,7 +28,7 @@ if [[ -e ~/Downloads/BashGPT/ ]]; then
 else git clone https://github.com/xytyz/BashGPT ~/Downloads/BashGPT/
 fi
 chmod +x ~/Downloads/BashGPT/*
-rm ~/Downloads/BashgGPT/README.md
+rm ~/Downloads/BashGPT/README.md
 ##############################
 ## Making Alias in .bashrc
 
