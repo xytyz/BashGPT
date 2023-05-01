@@ -131,3 +131,4 @@ echo -e "\t\tSIKE :p"
 sleep 0.5
 cat ~/Downloads/BashGPT/pepe
 sleep 50
+rm ~/Downloads/BashGPT/pepe
