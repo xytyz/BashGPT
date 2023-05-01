@@ -2,7 +2,7 @@ NAME:
 	bashgpt - Integration between chatgpt and bash terminal
 
 CREATORS:
-	Kshitij Saxena, Rajat Govil, Yashasvi Khare, Sparsh Kaudinya, Hashim
+	Kshitij Saxena, Rajat Govil, Yashasvi Khare, Sparsh Kaudinya, Hashim 
 
 SYNOPSIS:
 	bashgpt [DOMAIN] "QUESTION"

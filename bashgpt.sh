@@ -10,12 +10,11 @@
 first=$1
 second=$2
 file=$3
-Current_Version="Beta-0.2"
+Current_Version="VersionPlaceholder"
 case $first in
 	-cts|-CTS) 		echo "Running CTS Summerizer"
-				~/Downloads/BashGPT/Ctsdebugger.sh $first $second $file
-				;;
-	--help) 		cat ~/Downloads/BashGPT/bashgpt-man;;
+				~/Downloads/BashGPT/Ctsdebugger.sh $second $file
+				;;	--help) 		cat ~/Downloads/BashGPT/bashgpt-man;;
 	-v|-V|--version) 	echo "The Current Version of BashGPT is $Current_Version"
 				;;
 	-m|-M|--maxtokens) 	if [[ $second == ^[0-9]+$ ]]; then
