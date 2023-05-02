@@ -1,7 +1,6 @@
 #!/usr/bin/bash
 
-read -p 'Enter the file path: ' filename
-echo -e '\n'
+filename=$1
 
 : '
 1. Count the number of lines for the skew grp table
