@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-read -p "Enter the file name:" filename
+filename=$1
 
 if [ -e $filename ];
 then
