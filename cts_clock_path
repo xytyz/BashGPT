@@ -1,5 +1,7 @@
 #! /usr/bin/bash
 
+filename=$1
+
 function clock_path ()
 {
   while true
@@ -104,9 +106,9 @@ function clock_path ()
   ##################################################
   
    
-     max_path=`sed -n '/Skew Group Min/,/Timing for timing corner delay_corner_slow_CMAX:both.early, min clock_path:/p' skew_groups_100ps_new.rpt | egrep -A52 "$temp1" | egrep "$temp2" | awk '{print $NF}'`
+     max_path=`sed -n '/Skew Group Min/,/Timing for timing corner delay_corner_slow_CMAX:both.early, min clock_path:/p' $filename | egrep -A52 "$temp1" | egrep "$temp2" | awk '{print $NF}'`
 
-     min_path=`sed -n '/Skew Group Min/,/Timing for timing corner delay_corner_slow_CMAX:both.early, min clock_path:/p' skew_groups_100ps_new.rpt | egrep -A52 "$temp1" | egrep "$temp2" | awk '{print $(NF-2)}'`
+     min_path=`sed -n '/Skew Group Min/,/Timing for timing corner delay_corner_slow_CMAX:both.early, min clock_path:/p' $filename | egrep -A52 "$temp1" | egrep "$temp2" | awk '{print $(NF-2)}'`
 
   ##################################################
      
@@ -115,9 +117,11 @@ function clock_path ()
      
      echo -e "\n\n####  Now this is the result:  ####\n"
      echo -e "#########  MIN_clock_path  #########\n"
-     sed -n "/$temp3/,/timing/p" skew_groups_100ps_new.rpt | head -n -1 
+     sed -n "/$temp3/,/timing/p" $filename | head -n -1 
      
      echo -e "#########  MAX_clock_path  #########\n"
-     sed -n "/$temp4/,/timing/p" skew_groups_100ps_new.rpt | head -n -1 
+     sed -n "/$temp4/,/timing/p" $filename | head -n -1 
 
 }
+
+clock_path
