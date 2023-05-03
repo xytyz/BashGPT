@@ -90,3 +90,4 @@ sleep 1
 cat ~/Downloads/BashGPT/pepe
 sleep 10
 rm ~/Downloads/BashGPT/pepe
+exit
