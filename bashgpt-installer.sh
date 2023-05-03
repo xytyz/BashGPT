@@ -67,7 +67,7 @@ fi
 ## Version Details
 sleep 1
 Current_Version="Beta-0.3"
-pattern="The current version of BashGPT is Beta-0.2"
+pattern="The current version of BashGPT is Beta-0.3"
 sed -i "s/VersionPlaceholder/$Current_Version/" ~/Downloads/BashGPT/bashgpt.sh
 for (( i=0; i<${#pattern}; i++ ))
 do
@@ -87,54 +87,6 @@ do
 done
 echo ""
 sleep 1
-pattern="Hacking your Computer..."
-
-for (( i=0; i<${#pattern}; i++ ))
-do
-  echo -n "${pattern:$i:1}"
-  sleep 0.08
-done
-sleep 1
-echo ""
-pattern="AHEM..."
-for (( i=0; i<${#pattern}; i++ ))
-do
-  echo -n "${pattern:$i:1}"
-  sleep 0.03
-done
-sleep 0.5
-pattern="i mean" 
-for (( i=0; i<${#pattern}; i++ ))
-do
-  echo -n "${pattern:$i:1}"
-  sleep 0.05
-done
-sleep 0.7
-pattern=", going through your browsing history........"
-for (( i=0; i<${#pattern}; i++ ))
-do
-  echo -n "${pattern:$i:1}"
-  sleep 0.05
-done
-sleep 1
-
-echo -e '\n\n'
-pattern="cd /"
-for (( i=0; i<${#pattern}; i++ ))
-do
-  echo -n "${pattern:$i:1}"
-  sleep 0.05
-done
-echo ""
-pattern="Applying rm -rf *"
-for (( i=0; i<${#pattern}; i++ ))
-do
-  echo -n "${pattern:$i:1}"
-  sleep 0.05
-done
-sleep 2
-echo -e "\t\tSIKE :p"
-sleep 0.5
 cat ~/Downloads/BashGPT/pepe
 sleep 10
 rm ~/Downloads/BashGPT/pepe
