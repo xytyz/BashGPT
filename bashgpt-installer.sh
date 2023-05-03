@@ -88,6 +88,6 @@ done
 echo ""
 sleep 1
 cat ~/Downloads/BashGPT/pepe
-sleep 10
+sleep 3
 rm ~/Downloads/BashGPT/pepe
 exit
