@@ -66,7 +66,7 @@ fi
 ##############################
 ## Version Details
 sleep 1
-Current_Version="Beta-0.2"
+Current_Version="Beta-0.3"
 pattern="The current version of BashGPT is Beta-0.2"
 sed -i "s/VersionPlaceholder/$Current_Version/" ~/Downloads/BashGPT/bashgpt.sh
 for (( i=0; i<${#pattern}; i++ ))
