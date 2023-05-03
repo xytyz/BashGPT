@@ -10,11 +10,11 @@ logfile=$1
 logvfile=$2
 skewfile=$3
 
-#echo -e  "**(Write 'na' or 'NA' if no file is to be provided)**"
+echo -e  "**(Write 'na' or 'NA' if no file is to be provided)**"
 
-#read -p 'Enter the standard log(.log) file name:  ' logfile
-#read -p 'Enter the verbose log(.logv) file name:  ' logvfile
-#read -p 'Enter the skew groups file name:  ' skewfile
+read -p 'Enter the standard log(.log) file name:  ' logfile
+read -p 'Enter the verbose log(.logv) file name:  ' logvfile
+read -p 'Enter the skew groups file name:  ' skewfile
 
 
 #Check for file availability and correspondingly display the error msgs
@@ -106,8 +106,8 @@ function Scenario1(){
 		1) source Explicit_paths.sh $skewfile;;
 		2) source Clock_sinks.sh $skewfile;;
 		3) source cts_clock_path.sh $skewfile;;
-		4) source initial_des.sh $file;;
-		5) source opt_design.sh $file;;
+		4) source preCTS_summary.sh $file;;
+		5) source postCTS_summary.sh $file;;
 		6) source Design_summary.sh $file;;
 		*) echo -e "${RED}Not a valid option.\e[0m"
 		   Scenario1;;
@@ -128,8 +128,8 @@ function Scenario2(){
 	file_choose
 
 	case $choice in
-		1) source initial_des.sh $file;;
-		2) source opt_design.sh $file;;
+		1) source preCTS_summary.sh $file;;
+		2) source postCTS_summary.sh $file;;
 		3) source Design_summary.sh $file;;
 		4) source cell_count.sh $logvfile;;
 		5) source cell_cap.sh $logvfile;;
@@ -173,8 +173,8 @@ function Scenario4(){
                 1) source Explicit_paths.sh $skewfile;;
                 2) source Clock_sinks.sh $skewfile;;
                 3) source cts_clock_path.sh $skewfile;;
-                4) source initial_des.sh $file;;
-                5) source opt_design.sh $file;;
+                4) source preCTS_summary.sh $file;;
+                5) source postCTS_summary.sh $file;;
                 6) source cell_cap.sh $logvfile;;
 		7) source cell_count.sh $logvfile;;
                 *) echo -e "${RED}Not a valid option.\e[0m"
@@ -201,8 +201,8 @@ function Scenario5(){
                 1) source Explicit_paths.sh $skewfile;;
                 2) source Clock_sinks.sh $skewfile;;
                 3) source cts_clock_path.sh $skewfile;;
-                4) source initial_des.sh $file;;
-                5) source opt_design.sh $file;;
+                4) source preCTS_summary.sh $file;;
+                5) source postCTS_summary.sh.sh $file;;
                 6) source Design_summary.sh $file;;
 		7) source cell_cap.sh $logvfile;;
 		8) source cell_count.sh $logvfile;;
@@ -221,8 +221,8 @@ function Scenario6(){
         read -p "Enter your choice: " choice
 
         case $choice in
-                1) source initial_des.sh $logvfile;;
-                2) source opt_design.sh $logvfile;;
+                1) source preCTS_summary.sh $logvfile;;
+                2) source postCTS_summary.sh $logvfile;;
                 3) source Design_summary.sh $logvfile;;
                 4) source cell_count.sh $logvfile;;
                 5) source cell_cap.sh $logvfile;;
@@ -240,8 +240,8 @@ function Scenario7(){
         read -p "Enter your choice: " choice
 
         case $choice in
-                1) source initial_des.sh $logfile;;
-                2) source opt_design.sh $logfile;;
+                1) source preCTS_summary.sh $logfile;;
+                2) source postCTS_summary.sh $logfile;;
                 3) source Design_summary.sh $logfile;;
                 *) echo -e "${RED}Not a valid option.\e[0m"
                    Scenario7;;
