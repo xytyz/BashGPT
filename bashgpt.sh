@@ -13,7 +13,7 @@ file=$3
 Current_Version="Beta-0.2"
 case $first in
 	-cts|-CTS) 		echo "Running CTS Summerizer"
-				~/Downloads/BashGPT/Ctsdebugger.sh $second $file
+				~/Downloads/BashGPT/Top_CTS.sh $second $file
 				;;	
 	--help) 		cat ~/Downloads/BashGPT/bashgpt-man;;
 	-v|-V|--version) 	echo "The Current Version of BashGPT is $Current_Version"
