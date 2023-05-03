@@ -1,11 +1,13 @@
 #!/bin/bash
 
+: '
 echo -e "\nEnter the CTS logv file: \c"
 
 read file
 
 echo -e ""
-
+'
+file=$1
 check(){
 	if [[ -e $file ]]; then
 cellxcount(){
