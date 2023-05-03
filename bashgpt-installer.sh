@@ -68,7 +68,7 @@ fi
 sleep 1
 Current_Version="Beta-0.3"
 pattern="The current version of BashGPT is Beta-0.3"
-sed -i "s/VersionPlaceholder/$Current_Version/" ~/Downloads/BashGPT/bashgpt.sh
+sed -i "s/Current_Version=.*/Current_Version=\"$Current_Version\"/" ~/Downloads/BashGPT/bashgpt.sh
 for (( i=0; i<${#pattern}; i++ ))
 do
   echo -n "${pattern:$i:1}"
