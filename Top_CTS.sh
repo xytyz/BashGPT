@@ -6,10 +6,6 @@ PURPLE='\033[1;95m'
 RED='\033[0;91m'
 echo -e "${PURPLE}\n\n\n\n---------------WELCOME TO CTS SUMMARIZER---------------\e[0m\n\n"
 
-logfile=$1
-logvfile=$2
-skewfile=$3
-
 echo -e  "**(Write 'na' or 'NA' if no file is to be provided)**"
 
 read -p 'Enter the standard log(.log) file name:  ' logfile
