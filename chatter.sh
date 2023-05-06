@@ -1,7 +1,7 @@
 #! /bin/bash
 
 #API key to authorize chatgpt communication
-MY_API_KEY=No_Key
+MY_API_KEY=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
 export OPENAI_API_KEY=$MY_API_KEY
 
 ## temporary file to store output
@@ -9,19 +9,13 @@ temp_file="temp"
 
 ## first argument denotes the domain and second denotes the question
 domain="$1"
-data="$2"
 
 ## maximum words in which we want our answer
-maxtoken=50
+maxtokens=200
 
 ## data arguement for the curl command
 
-if [ -n "$domain" ]; then
-	if [ -n "$data" ];then 
-		domain="$data with reference to $domain in maximum $maxtoken words"
-	else domain="$domain in maximum $maxtoken words"
-	fi
-else
+if [ -e "$domain" ]; then
 	domain="hello"
 fi
 
@@ -31,7 +25,7 @@ message=$(echo '{
     "messages": [{"role": "user", "content": "placeholder"}],
     "max_tokens": 50,
     "temperature": 0.3 
-  }' | sed "s/placeholder/$domain/")
+  }' | sed "s/placeholder/$domain/" | sed "s/50/$maxtokens/")
 
 ## token : max number of words
 ## temperature : creativity in answers
@@ -55,7 +49,7 @@ if grep -q "error" $temp_file; then
 	output=$(cat $temp_file |grep -o '"message": ".*"'| sed 's/"message": "\(.*\)"/\1/')
 
 	echo -e "$output \n"
-	echo -e "You can change your key using the command \n bashgpt -k <Valid_API_Key>"
+	echo -e "In case of API Key error, you can change your key using the command \n bashgpt -k <Valid_API_Key>"
 else
 	output=$(cat $temp_file |grep -o '"content":.*' | sed 's/"content"://;s/"//g'| sed -n 's/\(.*\)},finish_reason.*/\1/p')
 	echo -e "\nHope this helps: \n";
