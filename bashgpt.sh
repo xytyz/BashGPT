@@ -28,27 +28,27 @@ echo -e "
 	5) Change My Settings
 	6) Exit Out
 "
-read -p "Your Option: " option
+read -p "Your Option(1-6): " option
 echo -e "\n${GREY}--------------------------------------------------------${NC}"
 case $option in
-	1) 			echo -e "\n Initializing Chatter"
+	1|"") 			echo -e "\n Initializing Chatter"
 				chat
 				;;
-	2) 			echo -e "\n Initializing CTS Summerizer"
+	2|"CTS"|"cts") 			echo -e "\n Initializing CTS Summerizer"
 				CTS
 				;;
-	3)			echo -e "\n Initializing Sample Codes Library"
+	3|"sample"|"code"|"Sample")			echo -e "\n Initializing Sample Codes Library"
 				;;
-	4) 			echo -e "\nThe Current Version Of Bashgpt Is ${YELLOW}$Current_Version${NC}.";
+	4|"Version"|"version") 			echo -e "\nThe Current Version Of Bashgpt Is ${YELLOW}$Current_Version${NC}.";
 				AnythingElseOptions
 				;;
-	5)			echo -e "\n\t\t${RED}---- BashGPT Settings ----${NC}";
+	5|"Settings"|"settings")			echo -e "\n\t\t${RED}---- BashGPT Settings ----${NC}";
 				echo -e "${GOLD}\e[3mWe recommend not changing settings you arent aware of,";
 				echo -e "doing so can lead to possible unwanted behaviours.\e[0m${NC}";
 				echo -e "What setting do you want to see?"
 				Settings
 				;;
-	6)			exit 0;;
+	6|"exit"|"EXIT"|"Exit")			exit 0;;
 	*)			echo -e "	${RED}#### Not A Valid Option ####\e[0m";
 				Options
 				;;
@@ -76,12 +76,12 @@ echo -e "
 read -p "Your Option: " choice
 
 case $choice in
-	1) 			tokenset
+	1|"max"|"Max"|"MAX"|"Tokens"|"TOKENS"|"tokens") 			tokenset
 				;;
-	2)			keyset
+	2|"API key"|"key"|"API")			keyset
 				;;
-	3)			AnythingElseOptions;;
-	4)			exit 0;;
+	3|"Go Back"|"GO BACK"|"go back")			AnythingElseOptions;;
+	4|"Exit"|"exit"|"EXIT")			exit 0;;
 	*)			echo -e "	${RED}#### Not A Valid Option ####\e[0m";
 				Settings
 				;;
@@ -170,10 +170,10 @@ function chatTop(){
 	read ques
 	question=$ques 
 	case $question in
-	 	"go back"|"Go Back"|"back"|"Back"|"Go back")		AnythingElseOptions
+	 	"go back"|"Go Back"|"back"|"Back"|"Go back"|"GO BACK")		AnythingElseOptions
 	 								;;
 	 								
-	 	"Exit"|"exit")						exit 0
+	 	"Exit"|"exit"|"EXIT")						exit 0
 	 								;;
 	 								
 	 	"Help"|"help"|"HELP"|"HELP ME"|"Help me"|"Help Me"|"help me"|"help Me"|"helup"|"Helup"|"halp"|"Halp")
@@ -182,13 +182,13 @@ function chatTop(){
 	 								chatTop
 	 								;;
 	 								
-	 	"")							echo "Sorry but you have to input something for me to answer.";echo -e "${GREY}You can go to the other options using  'Go back' or can exit from bashgpt using 'Exit'${NC}";	
+	 	"")							echo "Sorry but you have to input something for me to answer.";echo -e "${GREY}You can go to the other options using 'Go back' or can exit from bashgpt using 'Exit'${NC}";	
 	 								echo -e "Your prompt:";	
 	 								chatTop
 	 								;;
 	 								
 	 	*)							~/Downloads/BashGPT/chatter.sh $question;
-	 								echo -e "${GREY}You can go to the other options using  'Go back' or can exit from bashgpt using 'Exit'${NC}";		
+	 								echo -e "If you have any more questions, you can ask ahead down below, otherwise you can go to the other options using 'Go back' or can exit from bashgpt using 'Exit'${NC}";		
 									echo -e "Your prompt:";
 	 								chatTop
 	 								;;
