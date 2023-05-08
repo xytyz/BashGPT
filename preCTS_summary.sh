@@ -3,9 +3,11 @@
 #Initial Summary
 #IDesign Initial Hold Timing
 #Hold Opt Initial Summary
+: '
 echo -e "Enter the Filename: \c"
 read file
-
+'
+file=$1
 #function to check if the entered file exists or not
 check(){
 	if [[ -e $file ]]; then
