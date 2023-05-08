@@ -1,9 +1,10 @@
 #!/bin/bash/
-
+: '
 echo -e "Enter the filename: \c"
 
 read file
-
+'
+file=$1
 #function to check if the inserted filename corresponds to any file or not
 check(){
 	if [[ -e $file ]]; then
