@@ -198,7 +198,7 @@ function Scenario5(){
                 2) source Clock_sinks.sh $skewfile;;
                 3) source cts_clock_path.sh $skewfile;;
                 4) source preCTS_summary.sh $file;;
-                5) source postCTS_summary.sh.sh $file;;
+                5) source postCTS_summary.sh $file;;
                 6) source Design_summary.sh $file;;
 		7) source cell_cap.sh $logvfile;;
 		8) source cell_count.sh $logvfile;;
