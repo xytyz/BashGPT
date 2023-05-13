@@ -190,7 +190,7 @@ case $mod_Sel in
 
 
 # Use sed to extract the Verilog code for the specified module
-verilog_code=$(sed -n "/^module $module_name/,/^endmodule/p" verilog_codes.v)
+verilog_code=$(sed -n "/^module $module_name/,/^endmodule/p" ~/Downloads/BashGPT/verilog_codes.v)
 
 # Display the Verilog code for the specified module
 echo -e "\nVerilog code for $module_name: \n"
