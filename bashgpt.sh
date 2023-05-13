@@ -23,32 +23,32 @@ function Options(){
 echo -e "
 	1) Ask A Question
 	2) CTS Summarizer
-	3) Sample Codes
+	3) Sample Verilog Codes
 	4) Version Information
 	5) Change My Settings
 	6) Exit Out
 "
-read -p "Your Option(1-6): " option
+read -p "Your Option: " option
 echo -e "\n${GREY}--------------------------------------------------------${NC}"
 case $option in
-	1|"") 			echo -e "\n Initializing Chatter"
+	1) 			echo -e "\n Initializing Chatter"
 				chat
 				;;
-	2|"CTS"|"cts") 			echo -e "\n Initializing CTS Summerizer"
+	2) 			echo -e "\n Initializing CTS Summerizer"
 				CTS
 				;;
-	3|"sample"|"code"|"Sample")			echo -e "\n Initializing Sample Codes Library"
+	3)			echo -e "\nInitializing Sample Verilog Codes Library"; Codes
 				;;
-	4|"Version"|"version") 			echo -e "\nThe Current Version Of Bashgpt Is ${YELLOW}$Current_Version${NC}.";
+	4) 			echo -e "\nThe Current Version Of Bashgpt Is ${YELLOW}$Current_Version${NC}.";
 				AnythingElseOptions
 				;;
-	5|"Settings"|"settings")			echo -e "\n\t\t${RED}---- BashGPT Settings ----${NC}";
+	5)			echo -e "\n\t\t${RED}---- BashGPT Settings ----${NC}";
 				echo -e "${GOLD}\e[3mWe recommend not changing settings you arent aware of,";
 				echo -e "doing so can lead to possible unwanted behaviours.\e[0m${NC}";
 				echo -e "What setting do you want to see?"
 				Settings
 				;;
-	6|"exit"|"EXIT"|"Exit")			exit 0;;
+	6)			exit 0;;
 	*)			echo -e "	${RED}#### Not A Valid Option ####\e[0m";
 				Options
 				;;
@@ -64,6 +64,10 @@ function AnythingElseSettings(){
 echo -e "${GREY}--------------------------------------------------------${NC}\n\nAnything Else I Can Help You With?"
 Settings
 }
+function AnythingElseCode(){
+echo -e "${GREY}--------------------------------------------------------${NC}\n\nAnything Else I Can Help You With?"
+Codes
+}
 
 ###################################################################################### SETTINGS FUNCTION
 function Settings(){
@@ -76,12 +80,12 @@ echo -e "
 read -p "Your Option: " choice
 
 case $choice in
-	1|"max"|"Max"|"MAX"|"Tokens"|"TOKENS"|"tokens") 			tokenset
+	1) 			tokenset
 				;;
-	2|"API key"|"key"|"API")			keyset
+	2)			keyset
 				;;
-	3|"Go Back"|"GO BACK"|"go back")			AnythingElseOptions;;
-	4|"Exit"|"exit"|"EXIT")			exit 0;;
+	3)			AnythingElseOptions;;
+	4)			exit 0;;
 	*)			echo -e "	${RED}#### Not A Valid Option ####\e[0m";
 				Settings
 				;;
@@ -141,7 +145,60 @@ function keyset(){
 	esac
 }
 
+###################################################################################### SAMPLE V CODES
 
+function Codes(){
+echo -e "Here are some Sample Verilog Codes, Please Select one."
+
+echo -e "
+	1) AND Gate
+	2) OR Gate
+	3) Inverter
+	4) Half Adder
+	5) Full Adder
+	6) Half Subtractor
+	7) Full Subtractor
+	8) D Flip Flop
+	9) T Flip Flop
+       10) Two Bit Magnitude Comparator
+       11) Go Back to the last Menu
+       12) Exit
+"
+
+# Prompt the user to enter the name of the Verilog module to extract
+read -p "Kindly Enter The Number Corresponding To The Code You Would Like To See (1-10): " mod_Sel
+
+case $mod_Sel in
+		1)	module_name="and";;
+		2)	module_name="or";;
+		3)	module_name="inverter";;
+		4)	module_name="half";;
+		5)	module_name="full";;
+		6)	module_name="half_substractor";;
+		7)	module_name="full_substractor";;
+		8)	module_name="dflipflop";;
+		9)	module_name="tflipflop";;
+	       10)	module_name="mag";;
+	       
+	       11|"go back"|"Go Back"|"back"|"Back"|"Go back")		AnythingElseOptions;;
+	       12|"Exit"|"exit"|"EXIT") 				exit 0;;
+	       
+		*)	echo -e "\n	${RED}#### Not A Valid Option ####\e[0m\n";
+			Codes
+			;;
+	esac
+
+
+# Use sed to extract the Verilog code for the specified module
+verilog_code=$(sed -n "/^module $module_name/,/^endmodule/p" verilog_codes.v)
+
+# Display the Verilog code for the specified module
+echo -e "\nVerilog code for $module_name: \n"
+
+echo "$verilog_code"
+AnythingElseCode
+
+}
 
 ###################################################################################### CHAT FUNCTION
 
@@ -170,7 +227,7 @@ function chatTop(){
 	read ques
 	question=$ques 
 	case $question in
-	 	"go back"|"Go Back"|"back"|"Back"|"Go back"|"GO BACK")		AnythingElseOptions
+	 	"go back"|"Go Back"|"back"|"Back"|"Go back")		AnythingElseOptions
 	 								;;
 	 								
 	 	"Exit"|"exit"|"EXIT")						exit 0
@@ -182,13 +239,13 @@ function chatTop(){
 	 								chatTop
 	 								;;
 	 								
-	 	"")							echo "Sorry but you have to input something for me to answer.";echo -e "${GREY}You can go to the other options using 'Go back' or can exit from bashgpt using 'Exit'${NC}";	
+	 	"")							echo "Sorry but you have to input something for me to answer.";echo -e "${GREY}You can go to the other options using  'Go back' or can exit from bashgpt using 'Exit'${NC}";	
 	 								echo -e "Your prompt:";	
 	 								chatTop
 	 								;;
 	 								
 	 	*)							~/Downloads/BashGPT/chatter.sh $question;
-	 								echo -e "If you have any more questions, you can ask ahead down below, otherwise you can go to the other options using 'Go back' or can exit from bashgpt using 'Exit'${NC}";		
+	 								echo -e "${GREY}You can go to the other options using  'Go back' or can exit from bashgpt using 'Exit'${NC}";		
 									echo -e "Your prompt:";
 	 								chatTop
 	 								;;
