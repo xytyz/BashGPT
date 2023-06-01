@@ -87,7 +87,8 @@ do
 done
 echo ""
 sleep 1
-cat ~/Downloads/BashGPT/pepe
+echo "Successfully Installed! "
+#cat ~/Downloads/BashGPT/pepe
 sleep 3
 rm ~/Downloads/BashGPT/pepe
 exit
