@@ -45,6 +45,7 @@ then
 else
     	# Add the alias to .bashrc
     	echo "$NEW_ALIAS" >> ~/.bashrc
+	echo "alias BashGPT='~/Downloads/BashGPT/bashgpt.sh'" >> ~/.bashrc
     	echo "Alias added to .bashrc"
 fi
 source ~/.bashrc
