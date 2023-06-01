@@ -15,6 +15,7 @@ RED='\033[0;91m'
 YELLOW='\033[1;93m'
 GOLD='\033[0;33m' 
 GREY='\033[0;90m'
+GREEN='\033[0;32m'
 NC='\033[0m'
 
 
@@ -66,7 +67,11 @@ Settings
 }
 function AnythingElseCode(){
 echo -e "${GREY}--------------------------------------------------------${NC}\n\nAnything Else I Can Help You With?"
-Codes
+read -p "Press Y for searching more sample codes, and press N to go back to bashgpt main menu: " choice
+case $choice in 
+	Y|y)			Codes;;
+	N|n)			AnythingElseOptions;;
+esac
 }
 
 ###################################################################################### SETTINGS FUNCTION
@@ -161,12 +166,12 @@ echo -e "
 	8) D Flip Flop
 	9) T Flip Flop
        10) Two Bit Magnitude Comparator
-       11) Go Back to the last Menu
+       11) Go Back to the main menu
        12) Exit
 "
 
 # Prompt the user to enter the name of the Verilog module to extract
-read -p "Kindly Enter The Number Corresponding To The Code You Would Like To See (1-10): " mod_Sel
+read -p "Kindly Enter The Number Corresponding To The Code You Would Like To See (1-12): " mod_Sel
 
 case $mod_Sel in
 		1)	module_name="and";;
@@ -195,7 +200,7 @@ verilog_code=$(sed -n "/^module $module_name/,/^endmodule/p" ~/Downloads/BashGPT
 # Display the Verilog code for the specified module
 echo -e "\nVerilog code for $module_name: \n"
 
-echo "$verilog_code"
+echo -e "${GREEN} $verilog_code ${NC}"
 AnythingElseCode
 
 }

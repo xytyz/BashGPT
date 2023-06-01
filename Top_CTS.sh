@@ -6,6 +6,7 @@ PURPLE='\033[1;95m'
 RED='\033[0;91m'
 echo -e "${PURPLE}\n\n\n\n---------------WELCOME TO CTS SUMMARIZER---------------\e[0m\n\n"
 
+function main(){
 echo -e  "**(Write 'na' or 'NA' if no file is to be provided)**"
 
 read -p 'Enter the standard log(.log) file name:  ' logfile
@@ -14,20 +15,25 @@ read -p 'Enter the skew groups file name:  ' skewfile
 
 
 #Check for file availability and correspondingly display the error msgs
-if [ $skewfile = "na" ] && [ $logfile = "na" ] && [ $logvfile = "na" ];   
+if [ $skewfile == "na" ] && [ $logfile == "na" ] && [ $logvfile == "na" ];   
 then
 	echo -e "\nNo files provided."
 	sk_flag=0
 	lv_flag=0
 	log_flag=0
-	
+
+elif [ $skewfile -e ] || [ $logfile -e ] || [ $logvfile -e ];
+then 
+	echo -e "\n${RED}No given files are present. Please check and re-enter again.\e[0m"
+	~/Downloads/BashGPT/Top_CTS.sh
+
 elif [ ! -e $skewfile ] && [ ! -e $logvfile ] && [ ! -e $logfile ];
 then
 	echo -e "\n${RED}No given files are present. Please check and re-enter again.\e[0m"
-	source Top_CTS.sh
+	~/Downloads/BashGPT/Top_CTS.sh
 else
 	#if NA is entered, don't print error message that file isn't present
-	if [ $skewfile = "na" ] || [ $skewfile = "NA" ] || [ $skewfile = "Na" ] || [ $skewfile = "nA" ];	 
+	if [ $skewfile == "na" ] || [ $skewfile == "NA" ] || [ $skewfile == "Na" ] || [ $skewfile = "nA" ];	 
 	then
 		sk_flag=0
 	elif [ ! -e $skewfile ];
@@ -40,7 +46,7 @@ else
 		
 
 
-	if [ $logvfile = "na" ] || [ $logvfile = "NA" ] || [ $logvfile = "Na" ] || [ $logvfile = "nA" ];
+	if [ $logvfile == "na" ] || [ $logvfile == "NA" ] || [ $logvfile == "Na" ] || [ $logvfile = "nA" ];
         then    
                 lv_flag=0 
 	elif [ ! -e $logvfile ];
@@ -53,7 +59,7 @@ else
 	
 
 
-        if [ $logfile = "na" ] || [ $logfile = "NA" ] || [ $logfile = "Na" ] || [ $logfile = "nA" ];
+        if [ $logfile == "na" ] || [ $logfile == "NA" ] || [ $logfile == "Na" ] || [ $logfile == "nA" ];
         then    
                 log_flag=0 
 	elif [ ! -e $logfile ];
@@ -66,8 +72,51 @@ else
 fi
 echo -e "skflag = $sk_flag\t\tlv_flag=$lv_flag\t\tlog_flag=$log_flag\n\n"
 
-all_flag_sum=`expr $sk_flag + $lv_flag + $log_flag`
-lgfile_sum=`expr $lv_flag + $log_flag`
+all_flag_sum=$(expr $sk_flag + $lv_flag + $log_flag)
+lgfile_sum=$(expr $lv_flag + $log_flag)
+
+#Call the Scenario functions as per needed
+while true
+do
+if [[ $all_flag_sum -eq 0 ]];
+then
+	echo -e "\n\nNo options are available as per the inputs provided. Please re-enter the correct file names.\n"
+	~/Downloads/BashGPT/Top_CTS.sh	#rerun the script if no inputs are given
+
+elif [[ $sk_flag -eq 1 ]] && [[ $log_flag -eq 1 ]] && [[ $lv_flag -eq 0 ]]; #skew is present and log is present
+then
+	Scenario1
+elif [[ $sk_flag -eq 0 && $lgfile_sum -eq 2 ]]; #only log and logv are present
+then
+	Scenario2
+elif [[ $sk_flag -eq 1 ]] && [[ $lgfile_sum -eq 0 ]]; #only skew is present
+then
+	Scenario3
+elif [[ $sk_flag -eq 1 ]] && [[ $lv_flag -eq 1 ]] && [[ $log_flag -eq 0 ]]; #skew and logv are preset
+then
+	Scenario4
+elif [[ $sk_flag -eq 1 ]] && [[ $lv_flag -eq 1 ]] && [[ $log_flag -eq 1 ]]; #all files are present
+then
+	Scenario5
+elif [[ $sk_flag -eq 0 ]] && [[ $lgfile_sum -eq 1 ]] && [[ $lv_flag -eq 1 ]]; #only logv file is present
+then
+	Scenario6
+elif [[ $sk_flag -eq 0 ]] && [[ $lgfile_sum -eq 1 ]] && [[ $log_flag -eq 1 ]]; #only log file is present
+then
+	Scenario7
+fi
+
+#Exit on user's input
+read -p "Do you want to continue?(y/n): " yn
+if [ $yn = "n" ] || [ $yn = "N" ];
+then
+	break
+elif [ $yn = "y" ] || [ $yn = "Y" ];
+then
+	continue
+fi
+done
+}
 
 function file_choose(){
 	if [[ $lgfile_sum -gt 1 ]];
@@ -82,7 +131,6 @@ function file_choose(){
 		fi
 	fi
 }
-
 
 #-------------print the options as per the input provided-----------
 function Scenario1(){
@@ -244,45 +292,10 @@ function Scenario7(){
         esac
 }
 
-
-#Call the Scenario functions as per needed
-while true
-do
-if [ $all_flag_sum -eq 0 ];
-then
-	echo -e "\n\nNo options are available as per the inputs provided. Please re-enter the correct file names.\n"
-	source Top_CTS.sh	#rerun the script if no inputs are given
-
-elif [[ $sk_flag -eq 1 ]] && [[ $log_flag -eq 1 ]] && [[ $lv_flag -eq 0 ]]; #skew is present and log is present
-then
-	Scenario1
-elif [[ $sk_flag -eq 0 && $lgfile_sum -eq 2 ]]; #only log and logv are present
-then
-	Scenario2
-elif [[ $sk_flag -eq 1 ]] && [[ $lgfile_sum -eq 0 ]]; #only skew is present
-then
-	Scenario3
-elif [[ $sk_flag -eq 1 ]] && [[ $lv_flag -eq 1 ]] && [[ $log_flag -eq 0 ]]; #skew and logv are preset
-then
-	Scenario4
-elif [[ $sk_flag -eq 1 ]] && [[ $lv_flag -eq 1 ]] && [[ $log_flag -eq 1 ]]; #all files are present
-then
-	Scenario5
-elif [[ $sk_flag -eq 0 ]] && [[ $lgfile_sum -eq 1 ]] && [[ $lv_flag -eq 1 ]]; #only logv file is present
-then
-	Scenario6
-elif [[ $sk_flag -eq 0 ]] && [[ $lgfile_sum -eq 1 ]] && [[ $log_flag -eq 1 ]]; #only log file is present
-then
-	Scenario7
-fi
-
-#Exit on user's input
-read -p "Do you want to continue?(y/n): " yn
-if [ $yn = "n" ] || [ $yn = "N" ];
-then
-	break
-elif [ $yn = "y" ] || [ $yn = "Y" ];
-then
-	continue
-fi
-done
+echo -e "Do you want to input files or go back to the main menu? \n\t 1: Input Files\n\t 2: Go back to the Main Menu\n" 
+read -rp "Your choice? " choice
+case $choice in
+	"1")		main;;
+	"2")		exit 0;;
+	*)		~/Downloads/BashGPT/TOP_CTS.sh;;
+	esac

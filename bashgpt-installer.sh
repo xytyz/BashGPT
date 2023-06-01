@@ -45,7 +45,6 @@ then
 else
     	# Add the alias to .bashrc
     	echo "$NEW_ALIAS" >> ~/.bashrc
-	echo "alias BashGPT='~/Downloads/BashGPT/bashgpt.sh'" >> ~/.bashrc
     	echo "Alias added to .bashrc"
 fi
 source ~/.bashrc
@@ -88,7 +87,7 @@ do
 done
 echo ""
 sleep 1
-echo "Successfully Installed! "
+echo "INSTALLATION COMPLETE"
 #cat ~/Downloads/BashGPT/pepe
 sleep 3
 rm ~/Downloads/BashGPT/pepe
